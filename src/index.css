@@ -30,7 +30,7 @@ input {
 }
 
 .name-list {
-  height: 0px;
+  height: unset;
   overflow: hidden;
 }
 

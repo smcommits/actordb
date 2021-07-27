@@ -1,23 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CustomSearchHook from './CustomSearchHook';
 import SearchItem from './SearchItem';
-import { fetchSearch } from '../fetch/movieDB';
 
-const Search = () => {
-  const [query, setQuery] = React.useState('');
-  const [options, setOptions] = React.useState([]);
+export default function Search() {
+  const [query, setQuery] = useState('');
 
-  const fetchSearch = async (query) => {
-    const response = await fetch(`https://api.themoviedb.org/3/search/person?api_key=fca3a09ec5fa268a31aa58f3449d68be&language=en-US&query=${query}&page=1&include_adult=false`);
-    const data = await response.json();
-    if (data.results) {
-      return data.results.slice(0, 5);
-    }
-    return [];
-  };
+  const { options, loading } = CustomSearchHook(query);
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-    fetchSearch(query).then((data) => setOptions(data));
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
   };
 
   const handleClassChange = () => {
@@ -25,16 +16,14 @@ const Search = () => {
   };
 
   const optionsList = options.map((option) => (<SearchItem key={option.id} option={option} />));
-  console.log(options);
 
   return (
     <div className="searchBar">
-      <input type="text" onChange={handleChange} onFocus={handleClassChange} onBlur={handleClassChange} />
+      <input type="text" onChange={handleSearch} onFocus={handleClassChange} onBlur={handleClassChange} />
       <ul id="nameSelect" name="name" className="name-list">
         {optionsList}
+        <li>{loading && 'Loading...'}</li>
       </ul>
     </div>
   );
-};
-
-export default Search;
+}

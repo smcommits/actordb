@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchItem = (props) => {
   const { option } = props;
@@ -9,13 +10,15 @@ const SearchItem = (props) => {
       .then((data) => console.log(data));
   };
   return (
-    <li onClick={fetchActor}>
-      <div className="search-item">
-        {option.name}
-        <figure>
-          <img src={`https://image.tmdb.org/t/p/w200/${option.profile_path}`} alt="" />
-        </figure>
-      </div>
+    <li>
+      <Link to={`/actor/${option.id}`}>
+        <div className="search-item">
+          {option.name}
+          <figure>
+            <img src={`https://image.tmdb.org/t/p/w200/${option.profile_path}`} alt="" />
+          </figure>
+        </div>
+      </Link>
     </li>
   );
 };

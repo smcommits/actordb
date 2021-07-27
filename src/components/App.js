@@ -1,12 +1,21 @@
-import axios from 'axios';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+} from 'react-router-dom';
+
 import HomePageConnected from '../containers/Homepage';
-import Search from './Search';
+import ActorPage from '../containers/ActorPage';
 
 function App() {
   return (
     <>
-      <Search />
-      <HomePageConnected />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={HomePageConnected} />
+          <Route path="/actor/:id" component={() => <ActorPage id={192}/>} />
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }

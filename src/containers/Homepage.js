@@ -4,6 +4,7 @@ import {
 import { connect } from 'react-redux';
 
 import { fetchActorsStore } from '../reducers/actors';
+import Search from '../components/Search';
 import Actor from '../components/Actor';
 
 const HomePage = (props) => {
@@ -29,9 +30,12 @@ const HomePage = (props) => {
     : <Actor actor={actor} key={actor.id} />));
 
   return (
-    <section className="all-actors">
-      {actorsList}
-    </section>
+    <>
+      <Search />
+      <section className="all-actors">
+        {actorsList}
+      </section>
+    </>
   );
 };
 
