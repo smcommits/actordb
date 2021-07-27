@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import HomePageConnected from '../containers/Homepage';
-import ActorPage from '../containers/ActorPage';
+import ActorPage from './ActorPage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={HomePageConnected} />
-          <Route path="/actor/:id" component={() => <ActorPage id={192}/>} />
+          <Route path="/actor/:id" component={ActorPage} />
         </Switch>
       </BrowserRouter>
     </>

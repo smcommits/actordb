@@ -5,8 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
+
 import rootReducer from './reducers/index';
 import { fetchActorsStore } from './reducers/actors';
+import { fetchActorDetailsRedux } from './reducers/actorDetails'
 
 import './index.css';
 import App from './components/App';
@@ -14,6 +16,7 @@ import App from './components/App';
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 const store = createStore(rootReducer, composedEnhancer);
 store.dispatch(fetchActorsStore(1));
+//store.dispatch(fetchActorDetailsRedux(192))
 
 ReactDOM.render(
   <React.StrictMode>
