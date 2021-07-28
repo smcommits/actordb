@@ -44,3 +44,45 @@
   border-top-left-radius: 5px;
 }
 
+.stats_table {
+  margin: 0 -1rem;
+  margin-top: 2rem;
+  border-collapse: collapse;
+  padding: 0 1rem;
+  table-layout: fixed;
+  td {
+    width: 33.33%;
+  }
+  tr:nth-child(even) {
+    background-color: #1d1d1d;
+  }
+  tr:last-child{
+    background: none;
+  }
+}
+
+.table_row {
+  td {
+    padding: 2rem 0;
+    text-align: center;
+    &:not(:nth-child(2)) {
+      padding: 1rem;
+    }
+  }
+}
+
+.table_header {
+  th {
+    padding: 1rem 0;
+    background: #e50914;
+  }
+}
+
+.showMore {
+  background: #e50914;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 1rem;
+  border-radius: 4px;
+}

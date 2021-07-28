@@ -13,7 +13,7 @@ const ActorCard = (props) => {
   } = props;
 
   const {
-    name, biography, movie_credits: movieCredits, tv_credits, profile_path: profilePath, Awards: awards,
+    name, biography, movie_credits: movieCredits, tv_credits: tvCredits, profile_path: profilePath, Awards: awards,
   } = actorDetails || {};
   useEffect(() => {
     getActor(id);
@@ -31,7 +31,7 @@ const ActorCard = (props) => {
           <section className={styles.about_section}>
             <h1>{name}</h1>
             <Biography text={biography} />
-            <ActorStats />
+            <ActorStats movies={movieCredits.cast} tvCredits = {tvCredits.cast} awards={awards}/>
           </section>
         </section>
       )}
