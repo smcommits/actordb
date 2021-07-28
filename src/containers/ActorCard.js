@@ -2,24 +2,32 @@ import { React, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchActorDetailsRedux } from '../reducers/actorDetails';
+import Loader from '../components/Loader';
 
 const ActorCard = (props) => {
-  const { id, getActor, actorDetails } = props;
-
-
+  const {
+    id, getActor, actorDetails, loading,
+  } = props;
+  console.log(actorDetails)
   useEffect(() => {
-
-  getActor(id);
   }, []);
-  
+
   return (
-    <h1>Hey</h1>
+    <>
+      <Loader loading={loading} />
+      <section className="actor-section">
+        <h1>{actorDetails.name}</h1>
+      </section>
+    </>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps;
-  return { actorDetails: state.actorDetails[id] };
+  return {
+    actorDetails: state.actorDetails[id],
+    loading: state.loading.loading,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({

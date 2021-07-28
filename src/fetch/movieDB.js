@@ -31,16 +31,31 @@ const fetchSearch = async (query, cancelToken) => {
   return response;
 };
 
+const fetchActorAwards = async (id) => {
+  const response = axios({
+    method: 'GET',
+    url: `https://data-imdb1.p.rapidapi.com/actor/id/${id}/awards/`,
+    headers: {
+      'x-rapidapi-key': '2c7b502447msh6d3eaef885e50d5p18fa34jsn1b7cf01be631',
+      'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
+    },
+  });
+
+  return response;
+};
+
 const fetchActorDetails = async (id) => {
   const response = await axios({
     method: 'GET',
     url: `https://api.themoviedb.org/3/person/${id}`,
     params: {
       ...CONST_PARAMS,
+      append_to_response: 'movie_credits, tv_credits',
     },
   });
 
-  return response;
+  const actorAwards = await fetchActorAwards(response.data.imdb_id);
+  return { ...response.data, ...actorAwards.data };
 };
 
 export { fetchSearch, fetchActors, fetchActorDetails };

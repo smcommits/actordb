@@ -14,8 +14,12 @@ const actorDetailsReducer = (state = {}, action) => {
 
 const fetchActorDetailsRedux = (id) => {
   const thunkFuntion = async (dispatch, getState) => {
-    const response = await fetchActorDetails(id);
-    dispatch({ type: 'GET_DETAILS', payload: response.data });
+    dispatch({ type: 'SHOW_LOADER' });
+    fetchActorDetails(id)
+      .then((response) => {
+        dispatch({ type: 'GET_DETAILS', payload: response });
+        dispatch({ type: 'HIDE_LOADER' });
+      });
   };
 
   return thunkFuntion;
