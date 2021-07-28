@@ -50,7 +50,7 @@ const fetchActorDetails = async (id) => {
     url: `https://api.themoviedb.org/3/person/${id}`,
     params: {
       ...CONST_PARAMS,
-      append_to_response: 'movie_credits, tv_credits',
+      append_to_response: 'movie_credits,tv_credits',
     },
   });
 

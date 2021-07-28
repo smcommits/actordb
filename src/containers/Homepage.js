@@ -4,8 +4,9 @@ import {
 import { connect } from 'react-redux';
 
 import { fetchActorsStore } from '../reducers/actors';
-import Search from '../components/Search';
 import Actor from '../components/Actor';
+
+import styles from '../stylesheets/Homepage.module.scss';
 
 const HomePage = (props) => {
   const { actors, getActors } = props;
@@ -31,9 +32,11 @@ const HomePage = (props) => {
 
   return (
     <>
-      <Search />
-      <section className="all-actors">
-        {actorsList}
+      <section className={styles.main}>
+        <h1 className={styles.section_heading}>Trending Actors</h1>
+        <section className={styles.all_actors}>
+          {actorsList}
+        </section>
       </section>
     </>
   );

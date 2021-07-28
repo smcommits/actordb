@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CustomSearchHook from './CustomSearchHook';
 import SearchItem from './SearchItem';
+import styles from '../stylesheets/Search.module.scss';
 
 export default function Search() {
   const [query, setQuery] = useState('');
@@ -12,15 +13,18 @@ export default function Search() {
   };
 
   const handleClassChange = () => {
-    document.getElementById('nameSelect').classList.toggle('show');
+    document.getElementById('nameSelect').classList.toggle(styles.show);
   };
 
   const optionsList = options.map((option) => (<SearchItem key={option.id} option={option} />));
 
   return (
-    <div className="searchBar">
-      <input type="text" onChange={handleSearch} onFocus={handleClassChange} onBlur={handleClassChange} />
-      <ul id="nameSelect" name="name" className="name-list">
+    <div className={styles.search_bar}>
+      <div className={styles.search_input}>
+        <i className="las la-search" />
+        <input className={styles.input} type="text" onChange={handleSearch} onFocus={handleClassChange} onBlur={handleClassChange} />
+      </div>
+      <ul id="nameSelect" name="name" className={styles.name_list}>
         {optionsList}
         <li>{loading && 'Loading...'}</li>
       </ul>

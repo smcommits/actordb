@@ -1,0 +1,46 @@
+.actor_image {
+  with: 100%;
+  img {
+    width: 100%;
+}
+}
+
+
+.about_section {
+  padding: 1rem;
+
+  h1 {
+    font-size: 36px;
+  }
+
+}
+
+.biography_text {
+  margin-top: 1rem;
+  line-height: 1.5rem;
+}
+
+.stats_tab {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 2rem;
+
+  li {
+    font-size: 16px;
+    flex-basis: 33.33%;
+    text-align: center;
+    padding: 0.3rem 0.2rem;
+  }
+
+  li:nth-child(2) {
+  }
+}
+
+.active {
+  border-bottom: 1px solid red;
+  background: #1d1d1d;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
