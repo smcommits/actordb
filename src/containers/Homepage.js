@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { fetchActorsStore } from '../reducers/actors';
 import Actor from '../components/Actor';
-
+import Search from '../components/Search';
 import styles from '../stylesheets/Homepage.module.scss';
 
 const HomePage = (props) => {
@@ -32,6 +32,7 @@ const HomePage = (props) => {
 
   return (
     <>
+      <Search parent="Home" />
       <section className={styles.main}>
         <h1 className={styles.section_heading}>Trending Actors</h1>
         <section className={styles.all_actors}>

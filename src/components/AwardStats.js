@@ -14,13 +14,17 @@ const AwardStats = (props) => {
       <td>{award.event_name}</td>
       {award.movie && (
       <td>
-        Movie: <br/>
+        Movie:
+        {' '}
+        <br />
         {award.movie.title}
       </td>
       )}
       {award.series && (
       <td>
-        TV: <br/>
+        TV:
+        {' '}
+        <br />
         {award.series.title}
       </td>
       )}
@@ -32,7 +36,7 @@ const AwardStats = (props) => {
     <section className={styles.table_section}>
       <table className={styles.stats_table}>
         <tr className={styles.table_header}>
-          <th colSpan='2'>Award</th>
+          <th colSpan="2">Award</th>
           <th>Event</th>
           <th>Movie/TV</th>
           <th>Result</th>

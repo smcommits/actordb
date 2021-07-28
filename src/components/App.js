@@ -6,13 +6,11 @@ import {
 
 import HomePageConnected from '../containers/Homepage';
 import ActorPage from './ActorPage';
-import Search from './Search';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Search />
         <Switch>
           <Route path="/" exact component={HomePageConnected} />
           <Route path="/actor/:id" component={ActorPage} />

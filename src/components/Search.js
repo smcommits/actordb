@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CustomSearchHook from './CustomSearchHook';
 import SearchItem from './SearchItem';
 import styles from '../stylesheets/Search.module.scss';
 
-export default Search = (props) => {
-
-  const { parent } = props
-  console.log(parent)
+const Search = (props) => {
+  const { parent } = props;
   const [query, setQuery] = useState('');
+  const isParentActor = parent === 'actorPage';
 
   const { options, loading } = CustomSearchHook(query);
 
@@ -23,8 +23,14 @@ export default Search = (props) => {
 
   return (
     <div className={styles.search_bar}>
-      <div className={styles.search_input}>
-        <i className="las la-search" />
+      <div className={`${styles.search_input}`}>
+        {isParentActor
+        && (
+        <Link to="/">
+          <i className="las la-angle-left" />
+        </Link>
+        )}
+        <i className={`las la-search ${isParentActor && styles.reverse_search_bar}`} />
         <input className={styles.input} type="text" onChange={handleSearch} onFocus={handleClassChange} onBlur={handleClassChange} />
       </div>
       <ul id="nameSelect" name="name" className={styles.name_list}>
@@ -33,4 +39,5 @@ export default Search = (props) => {
       </ul>
     </div>
   );
-}
+};
+export default Search;

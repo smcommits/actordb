@@ -6,6 +6,7 @@ import Loader from '../components/Loader';
 import Biography from '../components/Biography';
 import ActorStats from '../components/ActorStats';
 import styles from '../stylesheets/ActorCard.module.scss';
+import Search from '../components/Search';
 
 const ActorCard = (props) => {
   const {
@@ -23,17 +24,20 @@ const ActorCard = (props) => {
     <>
       <Loader loading={loading} />
       {actorDetails && (
-        <section className="actor-section">
-          <figure className={styles.actor_image}>
-            <img src={`https://image.tmdb.org/t/p/w780/${profilePath}`} alt={name} />
-          </figure>
+        <>
+          <Search parent="actorPage" />
+          <section className="actor-section">
+            <figure className={styles.actor_image}>
+              <img src={`https://image.tmdb.org/t/p/w780/${profilePath}`} alt={name} />
+            </figure>
 
-          <section className={styles.about_section}>
-            <h1>{name}</h1>
-            <Biography text={biography} />
-            <ActorStats movies={movieCredits.cast} tvCredits={tvCredits.cast} awards={awards} />
+            <section className={styles.about_section}>
+              <h1>{name}</h1>
+              <Biography text={biography} />
+              <ActorStats movies={movieCredits.cast} tvCredits={tvCredits.cast} awards={awards} />
+            </section>
           </section>
-        </section>
+        </>
       )}
 
     </>

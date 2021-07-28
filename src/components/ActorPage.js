@@ -6,7 +6,9 @@ const ActorPage = () => {
   const { id } = useParams();
 
   return (
-    <ActorCard id={id} />
+    <>
+      <ActorCard id={id} />
+    </>
   );
 };
 
