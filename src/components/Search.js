@@ -3,7 +3,10 @@ import CustomSearchHook from './CustomSearchHook';
 import SearchItem from './SearchItem';
 import styles from '../stylesheets/Search.module.scss';
 
-export default function Search() {
+export default Search = (props) => {
+
+  const { parent } = props
+  console.log(parent)
   const [query, setQuery] = useState('');
 
   const { options, loading } = CustomSearchHook(query);

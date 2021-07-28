@@ -31,7 +31,7 @@ const ActorCard = (props) => {
           <section className={styles.about_section}>
             <h1>{name}</h1>
             <Biography text={biography} />
-            <ActorStats movies={movieCredits.cast} tvCredits = {tvCredits.cast} awards={awards}/>
+            <ActorStats movies={movieCredits.cast} tvCredits={tvCredits.cast} awards={awards} />
           </section>
         </section>
       )}

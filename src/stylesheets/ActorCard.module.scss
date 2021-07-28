@@ -44,12 +44,16 @@
   border-top-left-radius: 5px;
 }
 
-.stats_table {
+.table_section {
   margin: 0 -1rem;
+}
+.stats_table {
   margin-top: 2rem;
   border-collapse: collapse;
   padding: 0 1rem;
   table-layout: fixed;
+  width: 100%;
+     overflow-wrap: break-word;
   td {
     width: 33.33%;
   }
@@ -63,10 +67,13 @@
 
 .table_row {
   td {
-    padding: 2rem 0;
+    padding: 1rem 0;
     text-align: center;
-    &:not(:nth-child(2)) {
-      padding: 1rem;
+    &:first-child {
+      padding-left: 1rem;
+    }
+    &:last-child {
+      padding-right: 1rem;
     }
   }
 }
@@ -85,4 +92,8 @@
   font-size: 18px;
   padding: 1rem;
   border-radius: 4px;
+}
+
+.awards-row {
+
 }

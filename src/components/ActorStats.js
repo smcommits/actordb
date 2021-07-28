@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import styles from '../stylesheets/ActorCard.module.scss';
-import MovieStats from '../components/Stats'
+import MovieStats from './MovieStats';
+import TVStats from './TVStats';
+import AwardStats from './AwardStats';
 
 const ActorStats = (props) => {
   const [currentTab, setCurrentTab] = useState('Movies');
-  console.log(currentTab);
   const switchTabs = (e) => {
     setCurrentTab(e.target.textContent);
   };
 
-  const {movies, tvShows, awards} = props
+  const { movies, tvCredits, awards } = props;
 
   const isMovie = currentTab === 'Movies';
   const isTV = currentTab === 'T.V Shows';
@@ -26,21 +27,21 @@ const ActorStats = (props) => {
       {isMovie
         && (
         <section className={styles.stats_header}>
-          <MovieStats movieStats={movies}/>
+          <MovieStats movieStats={movies} />
         </section>
         )}
 
       {isTV
         && (
         <section className={styles.stats_header}>
-          <h1>Its Tv time</h1>
+          <TVStats tvStats={tvCredits} />
         </section>
         )}
 
       {isAwards
         && (
         <section className={styles.stats_header}>
-          <h1>Its awards time</h1>
+          <AwardStats awards={awards} />
         </section>
         )}
     </>

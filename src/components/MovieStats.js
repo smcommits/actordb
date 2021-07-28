@@ -4,7 +4,6 @@ import styles from '../stylesheets/ActorCard.module.scss';
 const MovieStats = (props) => {
   const [index, setIndex] = useState(10);
   const { movieStats } = props;
-
   const showMore = () => {
     setIndex(index + 10);
   };
@@ -19,19 +18,21 @@ const MovieStats = (props) => {
 
   return (
     <section className={styles.table_section}>
-    <table className={styles.stats_table}>
-      <tr className={styles.table_header}>
-        <th>Movie Name</th>
-        <th>Character Name</th>
-        <th>Release Date</th>
-      </tr>
-      {movieStatsFiltered}
-      <tr className={styles.table_row}>
-        <td align='center' colSpan="3">
-          <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
-        </td>
-      </tr>
-    </table>
+      <table className={styles.stats_table}>
+        <tr className={styles.table_header}>
+          <th>Movie Name</th>
+          <th>Character Name</th>
+          <th>Release Date</th>
+        </tr>
+        {movieStatsFiltered}
+        {movieStats.length - index > 0 && (
+        <tr className={styles.table_row}>
+          <td align="center" colSpan="3">
+            <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
+          </td>
+        </tr>
+        )}
+      </table>
 
     </section>
   );
