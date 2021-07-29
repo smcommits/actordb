@@ -10,6 +10,7 @@ import styles from '../stylesheets/Homepage.module.scss';
 import Filter from '../components/Filter';
 import { fetchTrendingActorsStore } from '../reducers/trending';
 import Loader from '../components/Loader';
+import DropDown from '../components/Dropdown';
 
 const HomePage = (props) => {
   const [page, setPage] = useState(2);
@@ -26,6 +27,7 @@ const HomePage = (props) => {
 
   useEffect(() => {
     if (actorFilter === 'Trending') {
+      getTrendingActors(1)
       setPage(1);
     }
   }, [actorFilter]);
@@ -66,7 +68,7 @@ const HomePage = (props) => {
       <section className={styles.main}>
         <div className={styles.home_header}>
           <h1 className={styles.section_heading}>Trending Actors</h1>
-          <Filter filterHandler={handleFilterChange} />
+          <DropDown filterHandler={handleFilterChange} />
         </div>
 
         <section className={styles.all_actors}>
