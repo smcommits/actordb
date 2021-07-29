@@ -28,10 +28,11 @@
 
 .name_list {
   color: white;
-  display: none;
+  display: block;
   position: absolute;
   background: #1d1d1d;
   width: 100%;
+  z-index: 10;
 }
 
 .name_list.show {
@@ -66,4 +67,8 @@ color: #fff;
 
 .reverse_search_bar {
   order: 3;
+}
+
+.loader_search {
+  padding: 1rem;
 }

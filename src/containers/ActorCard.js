@@ -19,10 +19,17 @@ const ActorCard = (props) => {
   useEffect(() => {
     getActor(id);
   }, []);
+
+  const loaderStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
   console.log(actorDetails);
   return (
-    <>
-      <Loader loading={loading} />
+    <section className={styles.main}>
+      <Loader loading={loading} absoluteStyle={loaderStyle} />
       {actorDetails && (
         <>
           <Search parent="actorPage" />
@@ -39,13 +46,9 @@ const ActorCard = (props) => {
           </section>
         </>
       )}
-
-    </>
+    </section>
   );
 };
-// <p className="total-movies">{movieCredits.cast.length + movieCredits.crew.length}</p>
-// <p className="total-awards">{awards.length}</p>
-// <p className="total-tv">{tv_credits.cast.length}</p>
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps;

@@ -14,6 +14,20 @@ const fetchActors = async (page) => {
       page,
     },
   });
+  console.log(response);
+  return response;
+};
+
+const fetchTrendingActors = async (page) => {
+  const response = await axios({
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/trending/person/day',
+    params: {
+      ...CONST_PARAMS,
+      page,
+    },
+  });
+  console.log(response);
   return response;
 };
 
@@ -58,4 +72,6 @@ const fetchActorDetails = async (id) => {
   return { ...response.data, ...actorAwards.data };
 };
 
-export { fetchSearch, fetchActors, fetchActorDetails };
+export {
+  fetchSearch, fetchActors, fetchActorDetails, fetchTrendingActors,
+};

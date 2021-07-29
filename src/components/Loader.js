@@ -1,12 +1,19 @@
 import React from 'react';
+import styles from '../stylesheets/Loader.module.scss';
 
 const Loader = (props) => {
-  const { loading } = props;
+  const { loading, absoluteStyle } = props;
 
   if (!loading) return null;
 
   return (
-    <h1>Loading...</h1>
+    <div className={styles.loading} style={absoluteStyle || {}}>
+      <div className={styles.dot} />
+      <div className={styles.dot} />
+      <div className={styles.dot} />
+      <div className={styles.dot} />
+      <div className={styles.dot} />
+    </div>
   );
 };
 

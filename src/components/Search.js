@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CustomSearchHook from './CustomSearchHook';
 import SearchItem from './SearchItem';
 import styles from '../stylesheets/Search.module.scss';
+import Loader from './Loader';
 
 const Search = (props) => {
   const { parent } = props;
@@ -35,7 +36,7 @@ const Search = (props) => {
       </div>
       <ul id="nameSelect" name="name" className={styles.name_list}>
         {optionsList}
-        <li>{loading && 'Loading...'}</li>
+        <li className={styles.loader_search}>{loading && <Loader loading={loading} />}</li>
       </ul>
     </div>
   );

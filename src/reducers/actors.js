@@ -8,7 +8,7 @@ function removeDuplicates(data, key) {
 
 const actorsReducer = (state = [], action) => {
   switch (action.type) {
-    case 'TRENDING_ACTORS':
+    case 'ALL_ACTORS':
       return removeDuplicates([...state, ...action.payload], (item) => item.id);
     default:
       return state;
@@ -17,8 +17,12 @@ const actorsReducer = (state = [], action) => {
 
 const fetchActorsStore = (page) => {
   const fetchActorsRedux = async (dispatch, getState) => {
-    const response = await fetchActors(page);
-    dispatch({ type: 'TRENDING_ACTORS', payload: response.data.results });
+    dispatch({ type: 'SHOW_LOADER' });
+    fetchActors(page)
+      .then((response) => {
+        dispatch({ type: 'ALL_ACTORS', payload: response.data.results });
+        dispatch({ type: 'HIDE_LOADER' });
+      });
   };
   return fetchActorsRedux;
 };
