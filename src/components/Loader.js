@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../stylesheets/Loader.module.scss';
 
 const Loader = (props) => {
@@ -15,6 +16,15 @@ const Loader = (props) => {
       <div className={styles.dot} />
     </div>
   );
+};
+
+Loader.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  absoluteStyle: PropTypes.instanceOf(Object),
+};
+
+Loader.defaultProps = {
+  absoluteStyle: {},
 };
 
 export default Loader;

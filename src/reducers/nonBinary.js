@@ -3,9 +3,8 @@ const nonBinary = (state = [], action) => {
     case 'FETCH_NON_BINARY':
       return action.payload;
     default:
-      return state
+      return state;
   }
 };
 
-export nonBinary;
-
+export default nonBinary;

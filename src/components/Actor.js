@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import styles from '../stylesheets/Homepage.module.scss';
@@ -22,6 +23,15 @@ const Actor = (props) => {
       </div>
     </Link>
   );
+};
+
+Actor.propTypes = {
+  actor: PropTypes.instanceOf(Object).isRequired,
+  reference: PropTypes.func,
+};
+
+Actor.defaultProps = {
+  reference: null,
 };
 
 export default Actor;

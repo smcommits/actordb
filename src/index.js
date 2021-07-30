@@ -7,11 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import './stylesheets/index.scss';
 import rootReducer from './reducers/index';
 import { fetchActorsStore } from './reducers/actors';
-import { fetchActorDetailsRedux } from './reducers/actorDetails';
-import { fetchImage } from './fetch/movieDB';
-import './global/binaryGenderData';
 import App from './components/App';
-import {getNonBinary} from './reducers/nonBinary'
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 const store = createStore(rootReducer, composedEnhancer);

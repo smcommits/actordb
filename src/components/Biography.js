@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from '../stylesheets/ActorCard.module.scss';
 
 const Biography = (props) => {
@@ -15,6 +16,10 @@ const Biography = (props) => {
       </span>
     </p>
   );
+};
+
+Biography.propTypes = {
+  text: PropTypes.string.isRequired,
 };
 
 export default Biography;

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { fetchActorDetails } from '../fetch/movieDB';
 
 const actorDetailsReducer = (state = {}, action) => {

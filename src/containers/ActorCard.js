@@ -1,5 +1,6 @@
 import { React, useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { fetchActorDetailsRedux } from '../reducers/actorDetails';
 import Loader from '../components/Loader';
@@ -14,8 +15,14 @@ const ActorCard = (props) => {
   } = props;
 
   const {
-    name, biography, movie_credits: movieCredits, tv_credits: tvCredits, profile_path: profilePath, Awards: awards,
+    name,
+    biography,
+    movie_credits: movieCredits,
+    tv_credits: tvCredits,
+    profile_path: profilePath,
+    Awards: awards,
   } = actorDetails || {};
+
   useEffect(() => {
     getActor(id);
   }, [id]);
@@ -27,7 +34,6 @@ const ActorCard = (props) => {
     transform: 'translate(-50%, -50%)',
   };
 
-  console.log(actorDetails);
   return (
     <section className={styles.main}>
       <Loader loading={loading} absoluteStyle={loaderStyle} />
@@ -50,6 +56,13 @@ const ActorCard = (props) => {
       )}
     </section>
   );
+};
+
+ActorCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  getActor: PropTypes.func.isRequired,
+  actorDetails: PropTypes.instanceOf(Object).isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {

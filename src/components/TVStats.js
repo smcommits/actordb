@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from '../stylesheets/ActorCard.module.scss';
 
 const TVStats = (props) => {
@@ -9,7 +10,7 @@ const TVStats = (props) => {
   };
 
   const tvStatsFiltered = tvStats.slice(0, index).map((tv) => (
-    <tr className={styles.table_row}>
+    <tr key={Math.random()} className={styles.table_row}>
       <td>{tv.original_name}</td>
       <td>{tv.character}</td>
       <td>{tv.first_air_date}</td>
@@ -36,6 +37,10 @@ const TVStats = (props) => {
 
     </section>
   );
+};
+
+TVStats.propTypes = {
+  tvStats: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default TVStats;

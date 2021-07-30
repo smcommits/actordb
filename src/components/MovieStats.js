@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from '../stylesheets/ActorCard.module.scss';
 
 const MovieStats = (props) => {
@@ -9,7 +10,7 @@ const MovieStats = (props) => {
   };
 
   const movieStatsFiltered = movieStats.slice(0, index).map((movie) => (
-    <tr className={styles.table_row}>
+    <tr key={Math.random()} className={styles.table_row}>
       <td>{movie.original_title}</td>
       <td>{movie.character}</td>
       <td>{movie.release_date}</td>
@@ -38,4 +39,7 @@ const MovieStats = (props) => {
   );
 };
 
+MovieStats.propTypes = {
+  movieStats: PropTypes.instanceOf(Array).isRequired,
+};
 export default MovieStats;

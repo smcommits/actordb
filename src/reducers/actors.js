@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { fetchActors } from '../fetch/movieDB';
 
 function removeDuplicates(data, key) {

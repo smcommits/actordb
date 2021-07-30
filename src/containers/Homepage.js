@@ -2,16 +2,16 @@ import {
   React, useState, useRef, useCallback, useEffect,
 } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { fetchActorsStore } from '../reducers/actors';
 import Actor from '../components/Actor';
 import Search from '../components/Search';
 import styles from '../stylesheets/Homepage.module.scss';
-import Filter from '../components/Filter';
 import { fetchTrendingActorsStore } from '../reducers/trending';
 import Loader from '../components/Loader';
 import DropDown from '../components/Dropdown';
-import nonBinaryActors from '../global/binaryGenderData'
+import nonBinaryActors from '../global/binaryGenderData';
 
 const HomePage = (props) => {
   const [page, setPage] = useState(2);
@@ -23,14 +23,27 @@ const HomePage = (props) => {
     trending,
     filterActors,
     loading,
+    nonBinary,
+    getNonBinary,
   } = props;
 
   useEffect(() => {
     if (actorFilter === 'Trending') {
       getTrendingActors(1);
       setPage(2);
+    } else if (actorFilter === 3) {
+      getNonBinary();
     }
   }, [actorFilter]);
+
+  const checkFilterAndMakeRequest = (page) => {
+    if (actorFilter === 'Trending') {
+      return getTrendingActors(page);
+    } if (actorFilter === 3) {
+      return null;
+    }
+    return getActors(page);
+  };
 
   const filteredActors = (actorFilter === 'All' && actors)
         || actors.filter((actor) => actor.gender === actorFilter);
@@ -42,7 +55,7 @@ const HomePage = (props) => {
     observer.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setPage((prevPage) => prevPage + 1);
-        actorFilter === 'Trending' ? getTrendingActors(page) : getActors(page);
+        checkFilterAndMakeRequest(page);
       }
     });
 
@@ -61,6 +74,7 @@ const HomePage = (props) => {
   };
 
   const filteredList = (actorFilter === 'Trending' && generateActorList(trending))
+          || (actorFilter === 3 && generateActorList(nonBinary))
           || generateActorList(filteredActors);
   return (
     <>
@@ -79,11 +93,24 @@ const HomePage = (props) => {
   );
 };
 
+HomePage.propTypes = {
+  actors: PropTypes.instanceOf(Array).isRequired,
+  getActors: PropTypes.func.isRequired,
+  getTrendingActors: PropTypes.func.isRequired,
+  actorFilter: PropTypes.string.isRequired,
+  trending: PropTypes.instanceOf(Array).isRequired,
+  filterActors: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  nonBinary: PropTypes.instanceOf(Array).isRequired,
+  getNonBinary: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   actors: state.actors,
   actorFilter: state.filter,
   trending: state.trending,
   loading: state.loading.loading,
+  nonBinary: state.nonBinary,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -95,6 +122,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getTrendingActors: (page) => {
     dispatch(fetchTrendingActorsStore(page));
+  },
+  getNonBinary: () => {
+    dispatch({ type: 'FETCH_NON_BINARY', payload: nonBinaryActors });
   },
 });
 

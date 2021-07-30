@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from '../stylesheets/ActorCard.module.scss';
 import MovieStats from './MovieStats';
 import TVStats from './TVStats';
@@ -55,6 +56,12 @@ const ActorStats = (props) => {
         )}
     </>
   );
+};
+
+ActorStats.propTypes = {
+  movies: PropTypes.instanceOf(Array).isRequired,
+  tvCredits: PropTypes.instanceOf(Array).isRequired,
+  awards: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default ActorStats;

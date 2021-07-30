@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Filter = (props) => {
   const { filterHandler } = props;
@@ -21,6 +22,10 @@ const Filter = (props) => {
       ))}
     </select>
   );
+};
+
+Filter.propTypes = {
+  filterHandler: PropTypes.func.isRequired,
 };
 
 export default Filter;
