@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../stylesheets/ActorCard.module.scss';
+import Empty from './Empty';
 
 const AwardStats = (props) => {
   const [index, setIndex] = useState(10);
@@ -33,25 +34,28 @@ const AwardStats = (props) => {
   ));
 
   return (
-    <section className={styles.table_section}>
-      <table className={styles.stats_table}>
-        <tr className={styles.table_header}>
-          <th colSpan="2">Award</th>
-          <th>Event</th>
-          <th>Movie/TV</th>
-          <th>Result</th>
-        </tr>
-        {awardsStatsFiltered}
-        {awards.length - index > 0 && (
-        <tr className={styles.table_row}>
-          <td align="center" colSpan="5">
-            <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
-          </td>
-        </tr>
-        )}
-      </table>
+    <>
+      <section className={styles.table_section}>
+        <table className={styles.stats_table}>
+          <tr className={styles.table_header}>
+            <th colSpan="2">Award</th>
+            <th>Event</th>
+            <th>Movie/TV</th>
+            <th>Result</th>
+          </tr>
+          {awards.length === 0 && <Empty />}
+          {awardsStatsFiltered}
+          {awards.length - index > 0 && (
+          <tr className={styles.table_row}>
+            <td align="center" colSpan="5">
+              <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
+            </td>
+          </tr>
+          )}
+        </table>
 
-    </section>
+      </section>
+    </>
   );
 };
 

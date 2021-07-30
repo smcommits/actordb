@@ -28,7 +28,7 @@ const ActorStats = (props) => {
           <span className={styles.count}>{tvCredits.length}</span>
         </li>
         <li onClick={switchTabs} className={isAwards && styles.active} data-attribute="Awards">
-        <strong>Awards</strong>
+          <strong>Awards</strong>
           <span className={styles.count}>{awards.length}</span>
         </li>
       </ul>

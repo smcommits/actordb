@@ -4,7 +4,6 @@ const actorDetailsReducer = (state = {}, action) => {
   switch (action.type) {
     case ('GET_DETAILS'):
       return {
-        ...state,
         [action.payload.id]: action.payload,
       };
     default:

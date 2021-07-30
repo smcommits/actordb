@@ -14,6 +14,7 @@ const fetchActors = async (page) => {
       page,
     },
   });
+  console.log(response);
   return response;
 };
 
@@ -26,6 +27,7 @@ const fetchTrendingActors = async (page) => {
       page,
     },
   });
+  console.log(response);
   return response;
 };
 const fetchSearch = async (query, cancelToken) => {

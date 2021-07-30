@@ -11,10 +11,10 @@ import Filter from '../components/Filter';
 import { fetchTrendingActorsStore } from '../reducers/trending';
 import Loader from '../components/Loader';
 import DropDown from '../components/Dropdown';
+import nonBinaryActors from '../global/binaryGenderData'
 
 const HomePage = (props) => {
   const [page, setPage] = useState(2);
-
   const {
     actors,
     getActors,
@@ -28,7 +28,7 @@ const HomePage = (props) => {
   useEffect(() => {
     if (actorFilter === 'Trending') {
       getTrendingActors(1);
-      setPage(1);
+      setPage(2);
     }
   }, [actorFilter]);
 
@@ -47,7 +47,7 @@ const HomePage = (props) => {
     });
 
     if (element) observer.current.observe(element);
-  }, [actors]);
+  }, [trending, actors]);
 
   const handleFilterChange = (actorFilter) => {
     filterActors(actorFilter);

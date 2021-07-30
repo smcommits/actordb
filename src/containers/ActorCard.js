@@ -18,7 +18,7 @@ const ActorCard = (props) => {
   } = actorDetails || {};
   useEffect(() => {
     getActor(id);
-  }, []);
+  }, [id]);
 
   const loaderStyle = {
     position: 'absolute',

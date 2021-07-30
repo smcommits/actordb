@@ -4,6 +4,7 @@ import { actorDetailsReducer } from './actorDetails';
 import loaderReducer from './loader';
 import filterReducer from './filter';
 import { trendingActorsReducer } from './trending';
+import { nonBinary } from './nonBinary';
 
 const rootReducer = combineReducers({
   actors: actorsReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   loading: loaderReducer,
   filter: filterReducer,
   trending: trendingActorsReducer,
+  nonBinary,
 });
 
 export default rootReducer;
