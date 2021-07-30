@@ -20,17 +20,23 @@ const ActorStats = (props) => {
   return (
     <>
       <ul className={styles.stats_tab}>
-        <li onClick={switchTabs} className={isMovie && styles.active} data-attribute="Movies">
-          <strong>Movies</strong>
-          <span className={styles.count}>{movies.length}</span>
+        <li className={isMovie && styles.active}>
+          <button type="button" onClick={switchTabs} data-attribute="Movies" onKeyUp={switchTabs}>
+            <strong>Movies</strong>
+            <span className={styles.count}>{movies.length}</span>
+          </button>
         </li>
-        <li onClick={switchTabs} className={isTV && styles.active} data-attribute="T.V Shows">
-          <strong>T.V Shows</strong>
-          <span className={styles.count}>{tvCredits.length}</span>
+        <li className={isTV && styles.active}>
+          <button type="button" onClick={switchTabs} data-attribute="T.V Shows" onKeyUp={switchTabs}>
+            <strong>T.V Shows</strong>
+            <span className={styles.count}>{tvCredits.length}</span>
+          </button>
         </li>
-        <li onClick={switchTabs} className={isAwards && styles.active} data-attribute="Awards">
-          <strong>Awards</strong>
-          <span className={styles.count}>{awards.length}</span>
+        <li className={isAwards && styles.active}>
+          <button type="button" onClick={switchTabs} data-attribute="Awards" onKeyUp={switchTabs}>
+            <strong>Awards</strong>
+            <span className={styles.count}>{awards.length}</span>
+          </button>
         </li>
       </ul>
 

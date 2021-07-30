@@ -35,7 +35,13 @@ const Search = (props) => {
           <i className="las la-angle-left" />
         </Link>
         )}
-        {(isOpen && <i className={`las la-times ${isParentActor && styles.reverse_search_bar}`} onClick={toggleSearch} />)
+        {(isOpen
+          && (
+          <button onClick={toggleSearch} type="button" className={`non-button ${isParentActor && styles.reverse_search_bar}`}>
+            <i className="las la-times" />
+          </button>
+          )
+        )
         || <i className={`las la-search ${isParentActor && styles.reverse_search_bar}`} />}
 
         <input className={styles.input} type="text" onChange={handleSearch} />

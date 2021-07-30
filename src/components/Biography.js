@@ -11,9 +11,9 @@ const Biography = (props) => {
   return (
     <p className={styles.biography_text}>
       {isReadMore ? text.slice(0, 500) : text}
-      <span onClick={toggleReadMore} className="read-or-hide">
-        {isReadMore ? '...read more' : ' show less'}
-      </span>
+      <button type="button" onClick={toggleReadMore} className={styles.show_more}>
+        {isReadMore ? '...read more' : 'show less'}
+      </button>
     </p>
   );
 };

@@ -10,7 +10,7 @@ const DropDownContainer = styled('div')`
 const DropDownHeader = styled('div')`
   margin: 0.8em 0;
   padding: 1rem;
-  font-weight: bold;
+  font-weight: light;
   font-size: 1.3rem;
   color: #fff;
   color: #e50914;
@@ -18,6 +18,7 @@ const DropDownHeader = styled('div')`
   display: flex;
   justify-content: space-between;
   align-content: center;
+  cursor: pointer;
 `;
 
 const DropDownListContainer = styled('div')`
@@ -44,6 +45,12 @@ const ListItem = styled('li')`
   list-style: none;
   margin: 0 -1em;
   padding: 0.8em;
+  cursor: pointer;
+  font-weight: light;
+
+  &:hover {
+    background: #1d1d1d;
+  }
 `;
 
 const filterCategories = ['All', 'Trending', 'Male', 'Female', 'Non-Binary'];
