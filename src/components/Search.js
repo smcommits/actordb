@@ -8,6 +8,7 @@ import Loader from './Loader';
 const Search = (props) => {
   const { parent } = props;
   const [query, setQuery] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const isParentActor = parent === 'actorPage';
 
   const { options, loading } = CustomSearchHook(query);
@@ -16,28 +17,36 @@ const Search = (props) => {
     setQuery(e.target.value);
   };
 
-  const handleClassChange = () => {
-    document.getElementById('nameSelect').classList.toggle(styles.show);
+  const toggleSearch = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setIsOpen(!isOpen);
+    }
   };
 
   const optionsList = options.map((option) => (<SearchItem key={option.id} option={option} />));
 
   return (
-    <div className={styles.search_bar}>
-      <div className={`${styles.search_input}`}>
+    <div className={styles.search_bar} onFocus={toggleSearch} onBlur={toggleSearch}>
+      <div className={`${styles.search_input} ${'search_options'}`}>
         {isParentActor
         && (
         <Link to="/">
           <i className="las la-angle-left" />
         </Link>
         )}
-        <i className={`las la-search ${isParentActor && styles.reverse_search_bar}`} />
-        <input className={styles.input} type="text" onChange={handleSearch} onFocus={handleClassChange} onBlur={handleClassChange} />
+        {(isOpen && <i className={`las la-times ${isParentActor && styles.reverse_search_bar}`} onClick={toggleSearch} />)
+        || <i className={`las la-search ${isParentActor && styles.reverse_search_bar}`} />}
+
+        <input className={styles.input} type="text" onChange={handleSearch} />
       </div>
-      <ul id="nameSelect" name="name" className={styles.name_list}>
-        {optionsList}
-        <li className={styles.loader_search}>{loading && <Loader loading={loading} />}</li>
-      </ul>
+      {isOpen
+        && (
+        <ul id="nameSelect" name="name" className={`${styles.name_list}`}>
+          {optionsList}
+          <li className={styles.loader_search}>{loading && <Loader loading={loading} />}</li>
+        </ul>
+        )}
+
     </div>
   );
 };

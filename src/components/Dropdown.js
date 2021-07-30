@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-
-const DropDownContainer = styled("div")`
+const DropDownContainer = styled('div')`
   width: 10.5em;
   position: relative;
 `;
 
-const DropDownHeader = styled("div")`
-  margin-bottom: 0.8em;
+const DropDownHeader = styled('div')`
+  margin: 0.8em 0;
   padding: 1rem;
   font-weight: bold;
   font-size: 1.3rem;
@@ -20,14 +19,14 @@ const DropDownHeader = styled("div")`
   align-content: center;
 `;
 
-const DropDownListContainer = styled("div")`
+const DropDownListContainer = styled('div')`
   position: absolute;
   top: 60px;
   z-index: 10;
   width: 100%;
 `;
 
-const DropDownList = styled("ul")`
+const DropDownList = styled('ul')`
   padding: 0;
   margin: 0;
   padding: 1em;
@@ -40,12 +39,11 @@ const DropDownList = styled("ul")`
   }
 `;
 
-const ListItem = styled("li")`
+const ListItem = styled('li')`
   list-style: none;
   margin: 0 -1em;
   padding: 0.8em;
 `;
-
 
 const filterCategories = ['All', 'Trending', 'Male', 'Female', 'Non-Binary'];
 
@@ -59,32 +57,30 @@ export default function DropDown(props) {
   };
   const toggling = () => setIsOpen(!isOpen);
 
-
   const onOptionClicked = (e) => {
     setSelectedOption(e.target.textContent);
-    handleFilterChange(e.target.textContent)
+    handleFilterChange(e.target.textContent);
     setIsOpen(false);
   };
 
   return (
-      <DropDownContainer>
-        <DropDownHeader onClick={toggling}>
-          <p>{selectedOption || "All"}</p>
-          {(isOpen && <i class="las la-angle-up"></i>)
-           || <i class="las la-angle-down"></i>}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {filterCategories.map(option => (
-                <ListItem onClick={onOptionClicked} key={Math.random()}>
-                  {option}
-                </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
-       )}
-      </DropDownContainer>
+    <DropDownContainer>
+      <DropDownHeader onClick={toggling}>
+        <p>{selectedOption || 'All'}</p>
+        {(isOpen && <i className="las la-angle-up" />)
+           || <i className="las la-angle-down" />}
+      </DropDownHeader>
+      {isOpen && (
+      <DropDownListContainer>
+        <DropDownList>
+          {filterCategories.map((option) => (
+            <ListItem onClick={onOptionClicked} key={Math.random()}>
+              {option}
+            </ListItem>
+          ))}
+        </DropDownList>
+      </DropDownListContainer>
+      )}
+    </DropDownContainer>
   );
 }
- 

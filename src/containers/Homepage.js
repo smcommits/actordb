@@ -27,7 +27,7 @@ const HomePage = (props) => {
 
   useEffect(() => {
     if (actorFilter === 'Trending') {
-      getTrendingActors(1)
+      getTrendingActors(1);
       setPage(1);
     }
   }, [actorFilter]);
@@ -67,7 +67,6 @@ const HomePage = (props) => {
       <Search parent="Home" />
       <section className={styles.main}>
         <div className={styles.home_header}>
-          <h1 className={styles.section_heading}>Trending Actors</h1>
           <DropDown filterHandler={handleFilterChange} />
         </div>
 

@@ -44,7 +44,7 @@ const AwardStats = (props) => {
         {awardsStatsFiltered}
         {awards.length - index > 0 && (
         <tr className={styles.table_row}>
-          <td align="center" colSpan="4">
+          <td align="center" colSpan="5">
             <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
           </td>
         </tr>

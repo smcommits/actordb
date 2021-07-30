@@ -8,6 +8,7 @@ import './stylesheets/index.scss';
 import rootReducer from './reducers/index';
 import { fetchActorsStore } from './reducers/actors';
 import { fetchActorDetailsRedux } from './reducers/actorDetails';
+import { fetchImage } from './fetch/movieDB';
 
 import App from './components/App';
 

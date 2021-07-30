@@ -1,8 +1,7 @@
 .actor_image {
-  with: 100%;
   img {
     width: 100%;
-}
+  }
 }
 
 .main {
@@ -33,7 +32,11 @@
     font-size: 16px;
     flex-basis: 33.33%;
     text-align: center;
-    padding: 0.3rem 0.2rem;
+    padding: 0.8rem 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   li:nth-child(2) {
@@ -60,7 +63,7 @@
   td {
     width: 33.33%;
   }
-  tr:nth-child(even) {
+  tr:nth-child(odd) {
     background-color: #1d1d1d;
   }
   tr:last-child{
@@ -88,6 +91,14 @@
   }
 }
 
+.count {
+  background: #e50914;
+  padding: 0.2rem 1rem;
+  margin-top: .5rem;
+  border-radius: 5px;
+  display: inline-block;
+}
+
 .showMore {
   background: #e50914;
   border: none;
@@ -100,3 +111,30 @@
 .awards-row {
 
 }
+
+@media (min-width: 992px) {
+
+  .actor_image {
+    height: 60vh;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .main {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  
+}
+
+@media(min-width: 1400px) {
+}
+
+
