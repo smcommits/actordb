@@ -29,7 +29,7 @@ const fetchTrendingActors = async (page) => {
   return response;
 };
 const fetchSearch = async (query, cancelToken) => {
-  if (!query) return;
+  if (!query) return undefined;
   const response = await axios({
     method: 'GET',
     url: 'https://api.themoviedb.org/3/search/person',

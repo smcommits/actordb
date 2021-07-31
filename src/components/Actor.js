@@ -9,7 +9,7 @@ const Actor = (props) => {
   const ref = reference || null;
 
   const createImageUrl = () => {
-    if (!actor.profile_path)  {
+    if (!actor.profile_path) {
       return `${process.env.PUBLIC_URL} /image404.png`;
     }
     return `https://image.tmdb.org/t/p/original/${actor.profile_path}`;
