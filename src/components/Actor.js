@@ -11,7 +11,7 @@ const Actor = (props) => {
     <Link to={`/actor/${actor.id}`}>
       <div ref={ref} className={styles.actor_wrapper}>
         <figure className={styles.actor_image}>
-          <img src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`} alt="" />
+          <img src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`} alt={actor.name} />
         </figure>
         <figcaption className="actor-caption">
           <h2>{actor.name}</h2>
