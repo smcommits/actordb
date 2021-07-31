@@ -20,19 +20,23 @@ const TVStats = (props) => {
   return (
     <section className={styles.table_section}>
       <table className={styles.stats_table}>
-        <tr className={styles.table_header}>
-          <th>Show Name</th>
-          <th>Character Name</th>
-          <th>First Air</th>
-        </tr>
-        {tvStatsFiltered}
-        {tvStats.length - index > 0 && (
-        <tr className={styles.table_row}>
-          <td align="center" colSpan="3">
-            <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
-          </td>
-        </tr>
-        )}
+        <thead className={styles.table_header}>
+          <tr>
+            <th>Show Name</th>
+            <th>Character Name</th>
+            <th>First Air</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tvStatsFiltered}
+          {tvStats.length - index > 0 && (
+          <tr className={styles.table_row}>
+            <td align="center" colSpan="3">
+              <button type="button" className={styles.showMore} onClick={showMore}>Show More</button>
+            </td>
+          </tr>
+          )}
+        </tbody>
       </table>
 
     </section>

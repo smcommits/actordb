@@ -20,19 +20,19 @@ const ActorStats = (props) => {
   return (
     <>
       <ul className={styles.stats_tab}>
-        <li className={isMovie && styles.active}>
+        <li className={(isMovie && styles.active) || undefined}>
           <button type="button" onClick={switchTabs} data-attribute="Movies" onKeyUp={switchTabs}>
             <strong>Movies</strong>
             <span className={styles.count}>{movies.length}</span>
           </button>
         </li>
-        <li className={isTV && styles.active}>
+        <li className={(isTV && styles.active) || undefined}>
           <button type="button" onClick={switchTabs} data-attribute="T.V Shows" onKeyUp={switchTabs}>
             <strong>T.V Shows</strong>
             <span className={styles.count}>{tvCredits.length}</span>
           </button>
         </li>
-        <li className={isAwards && styles.active}>
+        <li className={(isAwards && styles.active) || undefined}>
           <button type="button" onClick={switchTabs} data-attribute="Awards" onKeyUp={switchTabs}>
             <strong>Awards</strong>
             <span className={styles.count}>{awards.length}</span>

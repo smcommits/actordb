@@ -41,7 +41,7 @@ const ActorCard = (props) => {
         <>
           <Search parent="actorPage" />
           <section className={styles.actor_section}>
-            <section className={styles.image_details}>
+            <section>
               <figure className={styles.actor_image}>
                 <img src={`https://image.tmdb.org/t/p/w780/${profilePath}`} alt={name} />
               </figure>
@@ -59,10 +59,17 @@ const ActorCard = (props) => {
 };
 
 ActorCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
   getActor: PropTypes.func.isRequired,
-  actorDetails: PropTypes.instanceOf(Object).isRequired,
+  actorDetails: PropTypes.instanceOf(Object),
   loading: PropTypes.bool.isRequired,
+};
+
+ActorCard.defaultProps = {
+  actorDetails: undefined,
 };
 
 const mapStateToProps = (state, ownProps) => {

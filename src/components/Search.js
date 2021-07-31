@@ -37,7 +37,7 @@ const Search = (props) => {
         )}
         {(isOpen
           && (
-          <button onClick={toggleSearch} type="button" className={`non-button ${isParentActor && styles.reverse_search_bar}`}>
+          <button onClick={toggleSearch} type="button" className={`non-button ${(isParentActor && styles.reverse_search_bar) || undefined}`}>
             <i className="las la-times" />
           </button>
           )
