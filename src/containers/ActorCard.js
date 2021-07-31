@@ -40,7 +40,7 @@ const ActorCard = (props) => {
       {actorDetails && (
         <>
           <Search parent="actorPage" />
-          <section className="actor-section">
+          <section className={styles.actor_section}>
             <section className={styles.image_details}>
               <figure className={styles.actor_image}>
                 <img src={`https://image.tmdb.org/t/p/w780/${profilePath}`} alt={name} />
