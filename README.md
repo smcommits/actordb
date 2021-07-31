@@ -1,70 +1,96 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Cinema Faces</h1>
+      
+<p align="center">
+  <a href="https://cinemafaces.herokuapp.com/" targer="_blank">Live Demo</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#development-information">Development Information</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#authors">Authors</a> 
+</p>
 
-## Available Scripts
+Cinema Faces is a website which provides information about actors. You can view acotr bio, their movie count and list of movies, T.V shows, and awards. 
+<hr>
 
-In the project directory, you can run:
 
-### `npm start`
+![Desktop - 4](https://user-images.githubusercontent.com/59168430/127739194-2d6f7b5c-b726-4dbb-b84e-2104e8953418.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<hr>
 
-### `npm test`
+## Live Demo
+https://cinemafaces.herokuapp.com/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Cloning
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To clone the project on your local machine, run the following command. 
 
-### `npm run eject`
+```
+git clone https://github.com/smcommits/actordb
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Navigating
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the project directory using the following command.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+cd actordb
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Dependencies 
 
-## Learn More
+To install all the dependencies required to run the project, execute the following command. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install
+```
+#### Launching
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To launch the application, run the following command. 
 
-### Code Splitting
+```
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<hr>
 
-### Analyzing the Bundle Size
+## Development Information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Stack
 
-### Making a Progressive Web App
+This project is a front-end solution built with the following tech stacks:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- React
+- React-DOM
+- React-Router
+- Redux
 
-### Advanced Configuration
+### API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+TMDB API is used fetch all the information abou the actors. 
 
-### Deployment
+<hr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Authors
 
-### `npm run build` fails to minify
+👤 **Anas Siddiqui**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GitHub: [Anas Siddiqui](https://github.com/smcommits)
+- LinkedIn: [Anas Siddiqui](www.linkedin.com/in/sm-anas)
+
+<hr>
+
+## 🤝Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+<hr>
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+   
