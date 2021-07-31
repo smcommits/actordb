@@ -21,7 +21,7 @@ Cinema Faces is a website which provides information about actors. You can view 
 ## Live Demo
 https://cinemafaces.herokuapp.com/
 
-
+*Please not that the application is deployed on free tier of Heroku, and therefore it may take a few seconds to load. 
 
 ## Getting Started
 
