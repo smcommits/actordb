@@ -14,7 +14,6 @@ const fetchActors = async (page) => {
       page,
     },
   });
-  console.log(response)
   return response;
 };
 
