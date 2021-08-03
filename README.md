@@ -73,6 +73,15 @@ This project is a front-end solution built with the following tech stacks:
 
 TMDB API is used fetch all the information abou the actors. 
 
+### Tests
+
+This application uses react-testing-library to implement the tests. 
+
+To run the tests, please use the following command:
+```
+npm run tests
+```
+
 <hr>
 
 ## Authors
