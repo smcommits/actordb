@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import './stylesheets/index.scss';
@@ -9,7 +8,7 @@ import rootReducer from './reducers/index';
 import { fetchActorsStore } from './reducers/actors';
 import App from './components/App';
 
-const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
+const composedEnhancer = applyMiddleware(thunkMiddleware);
 const store = createStore(rootReducer, composedEnhancer);
 store.dispatch(fetchActorsStore(1));
 ReactDOM.render(

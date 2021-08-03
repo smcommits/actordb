@@ -44,7 +44,7 @@ const Search = (props) => {
         )
         || <i className={`las la-search ${isParentActor && styles.reverse_search_bar}`} />}
 
-        <input className={styles.input} type="text" onChange={handleSearch} />
+        <input className={styles.input} type="text" onChange={handleSearch} placeholder="Search for actor" />
       </div>
       {isOpen
         && (

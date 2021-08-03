@@ -14,6 +14,7 @@ const ActorCard = (props) => {
     id, getActor, actorDetails, loading,
   } = props;
 
+
   const {
     name,
     biography,
