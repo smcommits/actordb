@@ -79,7 +79,7 @@ This application uses react-testing-library to implement the tests.
 
 To run the tests, please use the following command:
 ```
-npm run tests
+npm run test
 ```
 
 <hr>
